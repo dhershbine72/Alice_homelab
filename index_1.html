@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alice Homelab</title>
+<!-- If Google Search Console gives you a meta-tag verification snippet, paste it on the next line: -->
+<!-- <meta name="google-site-verification" content="PASTE_CODE_HERE" /> -->
+<style>
+  :root{
+    --bg:#F7F4EC;
+    --surface:#FFFFFF;
+    --ink:#1C1B18;
+    --muted:#6B6659;
+    --line:#E2DCCB;
+    --accent:#B8632A;
+    --accent-ink:#FFFFFF;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15140F; --surface:#1D1C16; --ink:#EDE8DC; --muted:#A39C89; --line:#332F24; --accent:#E08A46; --accent-ink:#1A1208;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15140F; --surface:#1D1C16; --ink:#EDE8DC; --muted:#A39C89; --line:#332F24; --accent:#E08A46; --accent-ink:#1A1208;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.6; }
+  .wrap{ max-width:680px; margin:0 auto; padding:56px 24px 96px; }
+  header.top{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:28px; border-bottom:1px solid var(--line); margin-bottom:40px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:0.9rem; letter-spacing:0.04em; }
+  .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); flex-shrink:0; }
+  nav.top a{ font-family:var(--mono); font-size:0.82rem; color:var(--muted); text-decoration:none; letter-spacing:0.02em; }
+  nav.top a:hover, nav.top a:focus-visible{ color:var(--ink); }
+  .eyebrow{ font-family:var(--mono); text-transform:uppercase; font-size:0.72rem; letter-spacing:0.12em; color:var(--accent); margin:0 0 12px; }
+  h1{ font-family:var(--sans); font-weight:700; font-size:2.1rem; line-height:1.15; margin:0 0 18px; text-wrap:balance; max-width:20ch; }
+  p.lead{ font-size:1.08rem; color:var(--ink); max-width:60ch; margin:0 0 32px; }
+  .status-card{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px 22px; margin:0 0 40px; display:grid; grid-template-columns:auto 1fr; gap:6px 18px; font-family:var(--mono); font-size:0.85rem; }
+  .status-card dt{ color:var(--muted); } .status-card dd{ margin:0; color:var(--ink); }
+  .status-card .pill{ display:inline-block; background:color-mix(in srgb, var(--accent) 16%, transparent); color:var(--accent); border-radius:999px; padding:2px 10px; font-size:0.78rem; }
+  section{ margin-bottom:36px; }
+  h2{ font-size:1rem; font-family:var(--mono); text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:10px; margin:0 0 16px; }
+  ul.checklist{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  ul.checklist li{ display:flex; gap:10px; align-items:baseline; font-size:0.98rem; }
+  ul.checklist li::before{ content:"—"; color:var(--accent); font-family:var(--mono); flex-shrink:0; }
+  footer{ margin-top:56px; padding-top:24px; border-top:1px solid var(--line); font-family:var(--mono); font-size:0.8rem; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  footer a{ color:var(--muted); } footer a:hover, footer a:focus-visible{ color:var(--ink); }
+  a{ color:var(--accent); }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="dot"></span> ALICE HOMELAB</div>
+    <nav class="top"><a href="privacy.html">Privacy</a></nav>
+  </header>
+
+  <p class="eyebrow">Personal automation — single operator</p>
+  <h1>One person's home-run automation, for his own accounts.</h1>
+  <p class="lead">
+    Alice Homelab is a set of personal scripts and scheduled tools built and
+    operated by a single individual, Andrew, entirely for his own use: a YouTube
+    content pipeline for his own channels, plus Tasks, Calendar, and Gmail
+    organization tools for his own personal Google account. It is not a public
+    product, a service anyone can sign up for, or a company — it exists to
+    automate one person's own accounts and workflow.
+  </p>
+
+  <dl class="status-card">
+    <dt>Operator</dt><dd>Andrew (sole account holder)</dd>
+    <dt>Scope</dt><dd>Andrew's own Google accounts only</dd>
+    <dt>Public signup</dt><dd><span class="pill">none — not offered</span></dd>
+    <dt>Runs</dt><dd>Scheduled, on private infrastructure</dd>
+  </dl>
+
+  <section>
+    <h2>What it does</h2>
+    <ul class="checklist">
+      <li>Generates serialized fiction episodes and assembles narration, visuals, and captions into finished video files.</li>
+      <li>Uploads and manages those videos on Andrew's own YouTube channels via the YouTube Data API.</li>
+      <li>Lists, adds, and checks off items in Andrew's own Google Tasks.</li>
+      <li>Reads Andrew's own Google Calendar (and, for a planned feature not yet built, will create or modify events on it).</li>
+      <li>Reads, labels, and archives messages in Andrew's own personal Gmail inbox to keep it organized.</li>
+      <li>Sends Andrew status and failure notifications for runs he isn't watching live.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Why this page exists</h2>
+    <p style="margin:0; max-width:60ch;">
+      Google's OAuth verification requires a public homepage and privacy policy
+      for any app requesting account access, even a private, single-user tool
+      like this one. This page and its <a href="privacy.html">privacy policy</a>
+      exist to satisfy that requirement — see the privacy policy for exactly what
+      data each part of this project touches and why.
+    </p>
+  </section>
+
+  <footer>
+    <span>Alice Homelab · personal project</span>
+    <a href="mailto:dhershbine72@gmail.com">Contact</a>
+  </footer>
+</div>
+</body>
+</html>
